@@ -66,24 +66,24 @@
 
     <style>
         /* ============================================
-           CSS OTIMIZADO PARA DESIGN MAIS ATRAENTE (VERSÃO FINAL)
+           TODO O SEU CSS ORIGINAL ESTÁ AQUI (SEM ALTERAÇÕES)
            ============================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-color: #ffc107; /* Amarelo/Ouro mais vibrante */
+            --primary-color: #f59e0b;
             --secondary-color: #1f2937;
-            --accent-color: #dc3545; /* Vermelho mais padrão */
-            --success-color: #28a745; /* Verde mais padrão */
-            --light-bg: #f8f9fa;
-            --dark-bg: #0d1117; /* Fundo mais escuro e moderno */
-            --text-dark: #212529;
-            --text-light: #f8f9fa;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5); /* Sombra mais profunda */
+            --accent-color: #ef4444;
+            --success-color: #10b981;
+            --light-bg: #fef3c7;
+            --dark-bg: #0f172a;
+            --text-dark: #1f2937;
+            --text-light: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.3);
             --transition: all 0.3s ease;
         }
 
-        html, body { width: 100%; height: 100vh; overflow: hidden; }
+        html, body { width: 100%; height: 100%; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -94,9 +94,9 @@
         }
 
         .header {
-            background: rgba(13, 17, 23, 0.95); /* Usando o novo dark-bg */
+            background: rgba(15, 23, 42, 0.95);
             color: var(--text-light);
-            padding: 15px 20px; /* Um pouco mais de padding */
+            padding: 12px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -110,125 +110,72 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
-        .logo { font-size: 18px; font-weight: 900; color: var(--primary-color); }
-        .header-title { font-size: 18px; font-weight: 700; color: var(--text-light); }
+        .logo { font-size: 16px; font-weight: 900; color: var(--primary-color); }
+        .header-title { font-size: 16px; font-weight: 700; color: var(--text-light); }
 
-        .main-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 40px 15px; overflow: hidden; }
+        .main-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 25px 15px; }
         .content-wrapper { width: 100%; max-width: 900px; }
 
         .hero-section {
             text-align: center; color: var(--text-light);
-            margin-bottom: 40px; animation: fadeInDown 0.6s ease;
+            margin-bottom: 25px; animation: fadeInDown 0.6s ease;
         }
 
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Estilo para o Contador Regressivo */
-        .countdown-badge {
-            background: var(--accent-color);
-            padding: 10px 20px; /* Maior */
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 900;
-            color: var(--text-light);
-            margin-bottom: 15px;
-            display: inline-block;
-            box-shadow: 0 0 15px rgba(220, 53, 69, 0.7); /* Brilho sutil */
-            animation: pulse 2s infinite;
+        .urgency-badge {
+            background: var(--primary-color); padding: 7px 14px; border-radius: 25px;
+            font-size: 12px; font-weight: 900; color: var(--dark-bg);
+            margin-bottom: 12px; animation: pulse 2s infinite;
         }
 
-        .countdown-badge span {
-            font-size: 20px; /* Maior */
-            margin-left: 8px;
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        .hero-title { font-size: 32px; font-weight: 900; margin-bottom: 8px; }
+        .hero-subtitle { font-size: 16px; color: #d1d5db; }
 
-        .hero-title { font-size: 42px; font-weight: 900; margin-bottom: 10px; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); } /* Título maior e com sombra */
-        .hero-subtitle { font-size: 18px; color: #adb5bd; } /* Cor mais suave */
+        .cards-container { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100%; }
 
-        .cards-container { flex: 1; min-height: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px; /* Aumentar o espaçamento entre os cards */
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .cards-container { flex: 1; min-height: 0;
-                grid-template-columns: 1fr; /* Empilhar em telas menores */
-            }
-        }
-
-        .ebook-group { display: flex; flex-direction: column; gap: 15px; }
+        .ebook-group { display: flex; flex-direction: column; gap: 10px; }
         .ebook-phrase {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-color);
-            background: rgba(255,255,255,0.05); /* Fundo mais sutil */
-            padding: 12px 15px;
-            border-radius: 10px;
-            border: 2px solid var(--primary-color);
-            box-shadow: var(--shadow);
+            text-align: center; font-size: 18px; font-weight: 700; color: var(--primary-color);
+            background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 8px; border: 2px solid var(--primary-color);
         }
 
         .ebook-card {
-            background: var(--light-bg); /* Fundo claro para contraste */
-            border-radius: 15px; /* Bordas mais arredondadas */
-            overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-            transition: var(--transition);
-            border: 1px solid #e9ecef; /* Borda sutil */
+            background: white; border-radius: 10px; overflow: hidden;
+            box-shadow: var(--shadow-heavy); transition: var(--transition);
         }
 
-        .ebook-card:hover {
-            transform: translateY(-8px); /* Efeito hover mais pronunciado */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
+        .ebook-card:hover { transform: translateY(-4px); }
 
         .card-image {
             width: 100%; padding-top: 100%; position: relative;
-            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); /* Novo gradiente */
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
         }
 
         .card-image img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; /* Usar cover para preencher melhor */
-            padding: 0; /* Remover padding da imagem */
+            object-fit: contain; padding: 10px;
         }
 
-        .card-content { padding: 20px; display: flex; flex-direction: column; } /* Mais padding */
-        .card-title { font-size: 20px; font-weight: 900; margin-bottom: 10px; color: var(--secondary-color); }
-        .card-description { font-size: 14px; color: #6c757d; margin-bottom: 15px; }
+        .card-content { padding: 16px; display: flex; flex-direction: column; }
+        .card-title { font-size: 16px; font-weight: 900; margin-bottom: 8px; }
+        .card-description { font-size: 12px; color: #6b7280; margin-bottom: 10px; }
 
-        .card-features { list-style: none; font-size: 14px; margin-bottom: 20px; padding-left: 0; }
-        .card-features li { padding: 5px 0; display: flex; gap: 8px; align-items: center; }
-        .card-features li::before { content: "✔"; color: var(--success-color); font-size: 16px; font-weight: bold; }
+        .card-features { list-style: none; font-size: 11px; margin-bottom: 12px; }
+        .card-features li { padding: 3px 0; display: flex; gap: 5px; }
+        .card-features li::before { content: "✓"; color: var(--success-color); }
 
         .cta-button {
-            background: linear-gradient(45deg, var(--success-color), #1e7e34); /* Gradiente mais forte */
-            color: white;
-            padding: 15px 25px; /* Botão maior */
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
-            border: none;
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            color: white; padding: 11px 18px; border-radius: 7px; font-size: 13px; cursor: pointer;
         }
 
-        .cta-button:hover {
-            background: linear-gradient(45deg, #1e7e34, var(--success-color));
-            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
-        }
     </style>
 </head>
 
@@ -245,14 +192,9 @@
         <div class="content-wrapper">
 
             <div class="hero-section">
-                <!-- Contador Regressivo para Urgência -->
-                <div class="countdown-badge">
-                    ⏳ OFERTA EXPIRA EM: <span id="countdown">00:00:00</span>
-                </div>
+                <div class="urgency-badge">⚡ OFERTA EXCLUSIVA - ESCOLHA AGORA!</div>
                 <h1 class="hero-title">Transforme Sua Criação de Aves</h1>
                 <p class="hero-subtitle">Selecione o e-book que mais se adequa ao seu desafio</p>
-                <!-- Prova Social para Credibilidade -->
-                <p class="hero-subtitle" style="margin-top: 15px; font-weight: 700; color: var(--success-color); font-size: 18px;">✅ Mais de 10.000 criadores já transformaram seus resultados!</p>
             </div>
 
             <div class="cards-container">
@@ -277,7 +219,7 @@
                             </ul>
 
                             <button class="cta-button" onclick="window.location.href='https://o-segredo.pages.dev/'">
-                                ACESSAR AGORA
+                                Acessar Agora
                             </button>
                         </div>
                     </div>
@@ -303,7 +245,7 @@
                             </ul>
 
                             <button class="cta-button" onclick="window.location.href='https://pitinhospaginainicial.pages.dev/'">
-                                ACESSAR AGORA
+                                Acessar Agora
                             </button>
                         </div>
                     </div>
@@ -312,41 +254,6 @@
             </div> <!-- FIM CARDS -->
         </div>
     </div>
-
-    <script>
-        // Lógica do Contador Regressivo
-        function startCountdown() {
-            // Define o tempo de expiração para 15 minutos a partir de agora
-            const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 horas em milissegundos
-            const countdownElement = document.getElementById('countdown');
-
-            const interval = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = expiryTime - now;
-
-                // Cálculo de tempo
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Formatação com zero à esquerda
-                const formatTime = (time) => String(time).padStart(2, '0');
-
-                countdownElement.innerHTML = formatTime(hours) + ":"
-                    + formatTime(minutes) + ":" + formatTime(seconds);
-
-                // Quando o contador termina
-                if (distance < 0) {
-                    clearInterval(interval);
-                    countdownElement.innerHTML = "EXPIRADO";
-                    // Opcional: desabilitar botões ou mudar a cor
-                }
-            }, 1000);
-        }
-
-        // Inicia o contador ao carregar a página
-        window.onload = startCountdown;
-    </script>
 
 </body>
 </html>
