@@ -10,28 +10,31 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-430QD56D2K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-430QD56D2K');
     </script>
 
     <!-- ===================== META/FACEBOOK PIXEL ===================== -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '824040683676024');
         fbq('track', 'PageView');
     </script>
 
     <noscript>
         <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=824040683676024&ev=PageView&noscript=1"/>
+             src="https://www.facebook.com/tr?id=824040683676024&ev=PageView&noscript=1" />
     </noscript>
 
     <!-- ===================== TIKTOK PIXEL ===================== -->
@@ -66,24 +69,33 @@
 
     <style>
         /* ============================================
-           TODO O SEU CSS ORIGINAL ESTÁ AQUI (SEM ALTERAÇÕES)
+           CSS ORIGINAL COM REFINAMENTOS DE DESIGN
            ============================================ */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary-color: #f59e0b;
+            --primary-color: #ffc107; /* Amarelo/Ouro mais vibrante */
             --secondary-color: #1f2937;
-            --accent-color: #ef4444;
-            --success-color: #10b981;
-            --light-bg: #fef3c7;
-            --dark-bg: #0f172a;
-            --text-dark: #1f2937;
-            --text-light: #ffffff;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --accent-color: #dc3545; /* Vermelho mais padrão */
+            --success-color: #28a745; /* Verde mais padrão */
+            --light-bg: #f8f9fa; /* Fundo claro para cards */
+            --dark-bg: #0d1117; /* Fundo mais escuro e moderno */
+            --text-dark: #212529;
+            --text-light: #f8f9fa;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.5); /* Sombra mais profunda */
             --transition: all 0.3s ease;
         }
 
-        html, body { width: 100%; height: 100%; }
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -94,9 +106,9 @@
         }
 
         .header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(13, 17, 23, 0.95); /* Usando o novo dark-bg */
             color: var(--text-light);
-            padding: 12px 20px;
+            padding: 15px 20px; /* Um pouco mais de padding */
             position: sticky;
             top: 0;
             z-index: 100;
@@ -110,72 +122,224 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        .logo { font-size: 16px; font-weight: 900; color: var(--primary-color); }
-        .header-title { font-size: 16px; font-weight: 700; color: var(--text-light); }
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
 
-        .main-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 25px 15px; }
-        .content-wrapper { width: 100%; max-width: 900px; }
+        .header-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 15px;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 900px;
+        }
 
         .hero-section {
-            text-align: center; color: var(--text-light);
-            margin-bottom: 25px; animation: fadeInDown 0.6s ease;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            animation: fadeInDown 0.6s ease;
         }
 
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-        .urgency-badge {
-            background: var(--primary-color); padding: 7px 14px; border-radius: 25px;
-            font-size: 12px; font-weight: 900; color: var(--dark-bg);
-            margin-bottom: 12px; animation: pulse 2s infinite;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        /* Estilo para o Contador Regressivo (Substitui .urgency-badge) */
+        .countdown-badge {
+            background: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.7);
+            animation: pulse 2s infinite;
+        }
 
-        .hero-title { font-size: 32px; font-weight: 900; margin-bottom: 8px; }
-        .hero-subtitle { font-size: 16px; color: #d1d5db; }
+            .countdown-badge span {
+                font-size: 20px;
+                margin-left: 8px;
+            }
 
-        .cards-container { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100%; }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
 
-        .ebook-group { display: flex; flex-direction: column; gap: 10px; }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #adb5bd;
+        }
+
+        /* Estilo para a Prova Social */
+        .social-proof {
+            margin-top: 15px;
+            font-weight: 700;
+            color: var(--success-color);
+            font-size: 18px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mantendo o layout original de dois cards lado a lado */
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* O CSS original não tinha media query para empilhar, então mantemos o grid 1fr 1fr para celular */
+        /* Se o layout quebra, é porque o conteúdo é muito grande. O layout original era 1fr 1fr */
+        /* Se o usuário quer 1fr 1fr no celular, este é o código. */
+
+        .ebook-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
         .ebook-phrase {
-            text-align: center; font-size: 18px; font-weight: 700; color: var(--primary-color);
-            background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 8px; border: 2px solid var(--primary-color);
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(255,255,255,0.05);
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            box-shadow: var(--shadow);
         }
 
         .ebook-card {
-            background: white; border-radius: 10px; overflow: hidden;
-            box-shadow: var(--shadow-heavy); transition: var(--transition);
+            background: var(--light-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            transition: var(--transition);
+            border: 1px solid #e9ecef;
         }
 
-        .ebook-card:hover { transform: translateY(-4px); }
+            .ebook-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            }
 
         .card-image {
-            width: 100%; padding-top: 100%; position: relative;
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
         }
 
-        .card-image img {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: contain; padding: 10px;
+            .card-image img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                padding: 0;
+            }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card-content { padding: 16px; display: flex; flex-direction: column; }
-        .card-title { font-size: 16px; font-weight: 900; margin-bottom: 8px; }
-        .card-description { font-size: 12px; color: #6b7280; margin-bottom: 10px; }
+        .card-title {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
 
-        .card-features { list-style: none; font-size: 11px; margin-bottom: 12px; }
-        .card-features li { padding: 3px 0; display: flex; gap: 5px; }
-        .card-features li::before { content: "✓"; color: var(--success-color); }
+        .card-description {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .card-features {
+            list-style: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+            .card-features li {
+                padding: 5px 0;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+
+                .card-features li::before {
+                    content: "✔";
+                    color: var(--success-color);
+                    font-size: 16px;
+                    font-weight: bold;
+                }
 
         .cta-button {
-            background: linear-gradient(135deg, var(--success-color), #059669);
-            color: white; padding: 11px 18px; border-radius: 7px; font-size: 13px; cursor: pointer;
+            background: linear-gradient(45deg, var(--success-color), #1e7e34);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            border: none;
         }
 
+            .cta-button:hover {
+                background: linear-gradient(45deg, #1e7e34, var(--success-color));
+                box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+            }
     </style>
 </head>
 
@@ -192,9 +356,14 @@
         <div class="content-wrapper">
 
             <div class="hero-section">
-                <div class="urgency-badge">⚡ OFERTA EXCLUSIVA - ESCOLHA AGORA!</div>
+                <!-- Contador Regressivo para Urgência (24h) -->
+                <div class="countdown-badge">
+                    ⏳ OFERTA EXPIRA EM: <span id="countdown">00:00:00</span>
+                </div>
                 <h1 class="hero-title">Transforme Sua Criação de Aves</h1>
                 <p class="hero-subtitle">Selecione o e-book que mais se adequa ao seu desafio</p>
+                <!-- Prova Social para Credibilidade -->
+                <p class="social-proof">✅ Milhares de criadores já transformaram suas criações!</p>
             </div>
 
             <div class="cards-container">
@@ -219,7 +388,7 @@
                             </ul>
 
                             <button class="cta-button" onclick="window.location.href='https://o-segredo.pages.dev/'">
-                                Acessar Agora
+                                ACESSAR AGORA
                             </button>
                         </div>
                     </div>
@@ -245,7 +414,7 @@
                             </ul>
 
                             <button class="cta-button" onclick="window.location.href='https://pitinhospaginainicial.pages.dev/'">
-                                Acessar Agora
+                                ACESSAR AGORA
                             </button>
                         </div>
                     </div>
@@ -254,6 +423,41 @@
             </div> <!-- FIM CARDS -->
         </div>
     </div>
+
+    <script>
+        // Lógica do Contador Regressivo
+        function startCountdown() {
+            // Define o tempo de expiração para 24 horas a partir de agora
+            const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+            const countdownElement = document.getElementById('countdown');
+
+            const interval = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = expiryTime - now;
+
+                // Cálculo de tempo
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Formatação com zero à esquerda
+                const formatTime = (time) => String(time).padStart(2, '0');
+
+                countdownElement.innerHTML = formatTime(hours) + ":"
+                    + formatTime(minutes) + ":" + formatTime(seconds);
+
+                // Quando o contador termina
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "EXPIRADO";
+                    // Opcional: desabilitar botões ou mudar a cor
+                }
+            }, 1000);
+        }
+
+        // Inicia o contador ao carregar a página
+        window.onload = startCountdown;
+    </script>
 
 </body>
 </html>
