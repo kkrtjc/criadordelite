@@ -117,7 +117,7 @@
         .logo { font-size: 18px; font-weight: 900; color: var(--primary-color); }
         .header-title { font-size: 18px; font-weight: 700; color: var(--text-light); }
 
-        .main-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 40px 15px; overflow-y: auto; }
+        .main-container { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 40px 15px; overflow: hidden; }
         .content-wrapper { width: 100%; max-width: 900px; }
 
         .hero-section {
@@ -151,7 +151,7 @@
         .hero-title { font-size: 42px; font-weight: 900; margin-bottom: 10px; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); } /* Título maior e com sombra */
         .hero-subtitle { font-size: 18px; color: #adb5bd; } /* Cor mais suave */
 
-        .cards-container { flex: 1;
+        .cards-container { flex: 1; min-height: 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px; /* Aumentar o espaçamento entre os cards */
@@ -159,7 +159,7 @@
         }
 
         @media (max-width: 768px) {
-            .cards-container { flex: 1;
+            .cards-container { flex: 1; min-height: 0;
                 grid-template-columns: 1fr; /* Empilhar em telas menores */
             }
         }
