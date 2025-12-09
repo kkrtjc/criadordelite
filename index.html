@@ -596,8 +596,31 @@
         /* Otimização Mobile-First */
         @media (max-width: 768px) {
             .cards-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr; /* Força a exibição lado a lado */
+                gap: 10px; /* Reduz o espaço entre os cards */
             }
+            .content-wrapper {
+                max-width: 100%; /* Permite que o wrapper use toda a largura */
+                padding: 0 10px; /* Adiciona um pequeno padding nas laterais */
+            }
+            .ebook-card {
+                /* Ajustes para caberem lado a lado */
+                min-width: 150px;
+            }
+            .card-title {
+                font-size: 14px; /* Reduz o tamanho da fonte do título */
+            }
+            .card-description {
+                font-size: 10px; /* Reduz o tamanho da fonte da descrição */
+            }
+            .card-features {
+                font-size: 10px; /* Reduz o tamanho da fonte das features */
+            }
+            .cta-button {
+                font-size: 11px; /* Reduz o tamanho da fonte do botão */
+                padding: 8px 10px;
+            }
+            /* .cards-container: Mantido em 1fr 1fr para exibir lado a lado em mobile, conforme solicitado. */
 
             .stats-container {
                 flex-direction: column;
