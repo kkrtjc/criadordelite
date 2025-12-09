@@ -20,14 +20,14 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
             t.src = v; s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
+            'https://connect.facebook.com/en_US/fbevents.js');
         fbq('init', '1195570755852202');
         fbq('track', 'PageView');
     </script>
@@ -102,6 +102,97 @@
             background: linear-gradient(135deg, var(--dark-bg) 0%, #1a2847 100%);
             display: flex;
             flex-direction: column;
+            padding-top: 30px; /* Espaço para o ticker fixo */
+        }
+
+        /* Ticker de Depoimentos */
+        .testimonial-ticker-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(90deg, var(--success-color) 0%, #fef3c7 100%);
+            color: var(--dark-bg);
+            z-index: 101; /* Acima do header */
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        /* Removido efeito de pausa ao passar o mouse conforme solicitado */
+
+        .testimonial-ticker {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 20px;
+            animation: ticker-scroll 120s linear infinite; /* Velocidade mais lenta */
+            padding: 0;
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 60px;
+            padding: 5px 10px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .ticker-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 11px;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .ticker-content {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ticker-stars {
+            font-size: 11px;
+            font-weight: 900;
+            color: #fbbf24;
+        }
+
+        .ticker-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--dark-bg);
+        }
+
+        .ticker-author {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--dark-bg);
+            margin-left: 3px;
+        }
+
+        @keyframes ticker-scroll {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%); /* Move a metade do conteúdo (o original) para a esquerda, o que faz o conteúdo duplicado aparecer de forma contínua */
+            }
         }
 
         .header {
@@ -109,7 +200,7 @@
             color: var(--text-light);
             padding: 12px 20px;
             position: sticky;
-            top: 0;
+            top: 30px; /* Ajustado para ficar abaixo do ticker */
             z-index: 100;
             box-shadow: var(--shadow-heavy);
             backdrop-filter: blur(10px);
@@ -201,6 +292,19 @@
             color: #d1d5db;
         }
 
+        .countdown-timer {
+            background: var(--accent-color); /* Red */
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: 900;
+            margin: 15px auto 25px auto;
+            display: inline-block;
+            box-shadow: var(--shadow-heavy);
+            border: 2px solid white;
+        }
+
         .cards-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -226,10 +330,17 @@
             text-decoration: none;
             display: block;
             cursor: pointer;
+            transition: var(--transition);
         }
 
+            .ebook-phrase:hover {
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            }
+
         .ebook-card {
-            background: white;
+            background: var(--text-light);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow-heavy);
@@ -273,7 +384,13 @@
             font-size: 12px;
             color: #6b7280;
             margin-bottom: 10px;
+            font-weight: 600;
         }
+
+            .card-description .highlight-text {
+                color: var(--accent-color);
+                font-weight: 900;
+            }
 
         .card-features {
             list-style: none;
@@ -299,11 +416,369 @@
             border-radius: 7px;
             font-size: 13px;
             cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+        }
+
+            .cta-button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            }
+
+            .cta-button:active {
+                transform: scale(0.98);
+            }
+
+        /* ============================================
+           NOVOS ESTILOS PARA AUTORIDADE E PROVA SOCIAL
+           ============================================ */
+        .authority-block {
+            background: #fef3c7; /* Yellow/Orange */
+            color: var(--dark-bg); /* Dark text */
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+            animation: slideInUp 0.8s ease;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .authority-text {
+            margin: 5px 0;
+        }
+
+        .highlight {
+            font-weight: 900;
+            color: var(--accent-color); /* Red for strong highlight */
+        }
+
+        .social-proof-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            color: var(--text-light);
+            box-shadow: var(--shadow-heavy);
+        }
+
+            .social-proof-section h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: var(--primary-color);
+                font-weight: 900;
+            }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+            .stat-item:hover {
+                background: rgba(0, 0, 0, 0.4);
+            }
+
+        .stat-number {
+            display: block;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--success-color);
+            line-height: 1;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .guarantee-section {
+            margin-top: 30px;
+            padding: 15px;
+            background: var(--dark-bg);
+            border: 2px solid var(--success-color);
+            border-radius: 8px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+            .guarantee-section strong {
+                color: var(--success-color);
+                font-size: 16px;
+            }
+
+        /* SEÇÃO DE DEPOIMENTOS */
+        .testimonials-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+            .testimonials-section h2 {
+                font-size: 22px;
+                margin-bottom: 20px;
+                color: var(--primary-color);
+                font-weight: 900;
+            }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--success-color);
+            text-align: left;
+            transition: var(--transition);
+        }
+
+            .testimonial-card:hover {
+                background: rgba(0, 0, 0, 0.5);
+                transform: translateY(-2px);
+            }
+
+        .testimonial-text {
+            font-size: 13px;
+            margin-bottom: 10px;
+            font-style: italic;
+            color: #d1d5db;
+        }
+
+        .testimonial-author {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--success-color);
+        }
+
+        .stars {
+            color: var(--primary-color);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        /* RESPONSIVIDADE MOBILE */
+        /* Otimização Mobile-First */
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                flex-direction: column;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .authority-block {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            /* Ajuste fino para o ticker em telas menores */
+            .testimonial-ticker-wrapper {
+                height: 35px; /* Um pouco menor */
+            }
+
+            .ticker-item {
+                padding: 3px 8px;
+                gap: 5px;
+            }
+
+            .ticker-avatar {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+            }
+
+            .ticker-text {
+                font-size: 11px;
+            }
+
+            .ticker-author {
+                font-size: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Ticker de Depoimentos -->
+    <div class="testimonial-ticker-wrapper">
+        <div class="testimonial-ticker">
+            <div class="ticker-item">
+                <div class="ticker-avatar">AP</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Zero perdas por doença! O guia é ouro."</span>
+                    <span class="ticker-author">Ana P. (MG)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">JR</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Meus pintinhos crescem fortes!"</span>
+                    <span class="ticker-author">João R. (SP)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">MS</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Melhor investimento para minha criação."</span>
+                    <span class="ticker-author">Maria S. (BA)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">CM</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Protocolos que realmente funcionam."</span>
+                    <span class="ticker-author">Carlos M. (RJ)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">FL</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Recuperei meu plantel em semanas."</span>
+                    <span class="ticker-author">Fernanda L. (PR)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">PH</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Dicas que valem uma fortuna."</span>
+                    <span class="ticker-author">Pedro H. (GO)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">SC</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Aumentei minha produção em 30%!"</span>
+                    <span class="ticker-author">Sofia C. (RS)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">RB</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Conhecimento de quem entende."</span>
+                    <span class="ticker-author">Rafael B. (PE)</span>
+                </div>
+            </div>
+            <!-- Repetir para loop contínuo -->
+            <div class="ticker-item">
+                <div class="ticker-avatar">AP</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Zero perdas por doença! O guia é ouro."</span>
+                    <span class="ticker-author">Ana P. (MG)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">JR</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Meus pintinhos crescem fortes!"</span>
+                    <span class="ticker-author">João R. (SP)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">MS</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Melhor investimento para minha criação."</span>
+                    <span class="ticker-author">Maria S. (BA)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">CM</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Protocolos que realmente funcionam."</span>
+                    <span class="ticker-author">Carlos M. (RJ)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">FL</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Recuperei meu plantel em semanas."</span>
+                    <span class="ticker-author">Fernanda L. (PR)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">PH</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Dicas que valem uma fortuna."</span>
+                    <span class="ticker-author">Pedro H. (GO)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">SC</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Aumentei minha produção em 30%!"</span>
+                    <span class="ticker-author">Sofia C. (RS)</span>
+                </div>
+            </div>
+            <div class="ticker-item">
+                <div class="ticker-avatar">RB</div>
+                <div class="ticker-content">
+                    <span class="ticker-stars">★★★★★</span>
+                    <span class="ticker-text">"Conhecimento de quem entende."</span>
+                    <span class="ticker-author">Rafael B. (PE)</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="header">
         <div class="header-content">
@@ -318,8 +793,23 @@
             <div class="hero-section">
                 <div class="urgency-badge">⚡ OFERTA EXCLUSIVA - ESCOLHA AGORA!</div>
                 <h1 class="hero-title">Transforme Sua Criação de Galinhas</h1>
+                <p class="hero-subtitle">O conhecimento de 10+ anos, agora ao seu alcance.</p>
                 <p class="hero">VOCE QUER <span style="color: #f97316;"> PARAR DE PERDER GALINHAS</span> PARA DOENÇAS OU <span style="color: #f97316;">CRIAR PINTINHOS DE ELITE</span> ?</p>
-                <p class="hero-title"> FAÇA SUA ESCOLHA</p>
+                <p class="hero-title">👇 FAÇA SUA ESCOLHA AGORA 👇</p>
+                <!-- NOVO: Contador de Urgência -->
+                <div class="countdown-timer" id="countdown">
+                    OFERTA EXPIRA EM: 00:00:00
+                </div>
+            </div>
+
+            <!-- BLOCO DE AUTORIDADE -->
+            <div class="authority-block">
+                <p class="authority-text">
+                    ✅ Baseado em <span class="highlight">+ de 10 Anos de Experiência</span> no Manejo Avícola.
+                </p>
+                <p class="authority-text">
+                    ✅ Já <span class="highlight">ajudamos centenas de criadores</span> a transformar seus resultados.
+                </p>
             </div>
 
             <div class="cards-container">
@@ -335,7 +825,7 @@
 
                         <div class="card-content">
                             <h3 class="card-title">O Segredo das Doenças Avícolas</h3>
-                            <p class="card-description">Guia completo com mais de 10 anos de experiência.</p>
+                            <p class="card-description">Guia completo com <span class="highlight-text">10+ anos de experiência</span> comprovada.</p>
 
                             <ul class="card-features">
                                 <li>11+ doenças explicadas</li>
@@ -361,7 +851,7 @@
 
                         <div class="card-content">
                             <h3 class="card-title">Manejo de Elite de Pintinhos</h3>
-                            <p class="card-description">Domine incubação, aquecimento e manejo inicial.</p>
+                            <p class="card-description">Domine com <span class="highlight-text">técnicas de elite</span> testadas e aprovadas.</p>
 
                             <ul class="card-features">
                                 <li>Incubação natural e artificial</li>
@@ -377,8 +867,87 @@
                 </div>
 
             </div> <!-- FIM CARDS -->
+            <!-- BLOCO DE PROVA SOCIAL E GARANTIA -->
+            <div class="social-proof-section">
+                <h2>Resultados Comprovados que Falam por Si</h2>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Anos de Experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">480+</span>
+                        <span class="stat-label">Criadores Ajudados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">de Satisfação Comprovada</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guarantee-section">
+                <strong>RISCO ZERO:</strong> Você tem 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do seu investimento.
+            </div>
+
+
+
         </div>
     </div>
+
+    <script>
+        // Função para formatar o tempo
+        function formatTime(time) {
+            return time < 10 ? '0' + time : time;
+        }
+
+        // Função principal do contador regressivo
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const oneDay = 24 * 60 * 60 * 1000; // 24 horas em milissegundos
+            let interval; // Declara a variável do intervalo fora da função para que 'clearInterval' possa acessá-la
+
+            // Tenta obter o tempo de expiração e converte para número. Se for null ou inválido, será NaN.
+            let expiryTime = parseInt(localStorage.getItem('countdownExpiry'));
+
+            // Se não houver tempo de expiração salvo (NaN) ou se já expirou, define um novo tempo (24h a partir de agora)
+            if (isNaN(expiryTime) || new Date().getTime() > expiryTime) {
+                expiryTime = new Date().getTime() + oneDay;
+                localStorage.setItem('countdownExpiry', expiryTime);
+            }
+
+            // Função que atualiza o display e é chamada imediatamente e a cada segundo
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                let distance = expiryTime - now;
+
+                // Se o contador terminar
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "OFERTA EXPIRADA. Atualize a página para uma nova chance.";
+                    localStorage.removeItem('countdownExpiry'); // Remove para que um novo comece no próximo acesso
+                    return; // Sai da função para não calcular tempo negativo
+                }
+
+                // Cálculo do tempo
+                const hours = Math.floor((distance % oneDay) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Exibe o resultado
+                countdownElement.innerHTML = `OFERTA EXPIRA EM: ${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+            };
+
+            // Inicia o intervalo e atribui à variável 'interval'
+            interval = setInterval(updateCountdown, 1000);
+
+            // Chama a função imediatamente para evitar o "00:00:00" inicial
+            updateCountdown();
+        }
+
+        // Inicia o contador quando a página carregar
+        startCountdown();
+    </script>
 
 </body>
 </html>
